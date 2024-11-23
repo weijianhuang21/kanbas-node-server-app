@@ -8,7 +8,7 @@ import cors from "cors";
 import session from "express-session";
 import "dotenv/config";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
-import "dotenv/config";
+
 
 const app = express();
 app.use(cors({
