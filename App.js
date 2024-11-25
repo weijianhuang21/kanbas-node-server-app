@@ -11,6 +11,7 @@ import ModuleRoutes from "./Kanbas/Modules/routes.js";
 
 
 const app = express();
+app.use(express.json());
 app.use(
     cors({
       credentials: true,
@@ -31,14 +32,14 @@ app.use(
     sessionOptions.cookie = {
       sameSite: "none",
       secure: true,
-      domain: process.env.REMOTE_SERVER,
+      domain: process.env.NODE_SERVER_DOMAIN,
     };
   }
   app.use(session(sessionOptions));
   
 
 
-app.use(express.json());
+
 
 
 HelloRoutes(app);
