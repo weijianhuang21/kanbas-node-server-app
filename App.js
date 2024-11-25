@@ -11,37 +11,34 @@ import ModuleRoutes from "./Kanbas/Modules/routes.js";
 
 
 const app = express();
-app.use(express.json());
-// Updated CORS Configuration
 app.use(
     cors({
-        origin: "https://a5--kanbas-react-web-app-24.netlify.app", // Allow only your frontend
-        credentials: true, // Allow cookies/sessions from frontend
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
-        allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+      credentials: true,
+      origin: process.env.NETLIFY_URL || "http://localhost:3000",
     })
-);
-app.options("*", cors()); // Handle preflight requests
+   );
 
-const sessionOptions = {
+
+
+   const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kanbas",
     resave: false,
     saveUninitialized: false,
-};
-
-if (process.env.NODE_ENV !== "development") {
+  };
+  
+  if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true;
     sessionOptions.cookie = {
-        sameSite: "none",
-        secure: true,
-        domain: process.env.NODE_SERVER_DOMAIN,
+      sameSite: "none",
+      secure: true,
+      domain: process.env.NODE_SERVER_DOMAIN,
     };
-}
-app.use(session(sessionOptions));
+  }
+  app.use(session(sessionOptions));
+  
 
 
-
-
+app.use(express.json());
 
 
 HelloRoutes(app);
