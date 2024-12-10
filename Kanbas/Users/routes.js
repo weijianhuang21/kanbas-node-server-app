@@ -101,6 +101,7 @@ export default function UserRoutes(app) {
 
   const findCoursesForUser = async (req, res) => {
     const currentUser = req.session["currentUser"];
+    console.log(currentUser);
     if (!currentUser) {
       res.sendStatus(401);
       return;
@@ -117,6 +118,7 @@ export default function UserRoutes(app) {
     const courses = await enrollmentsDao.findCoursesForUser(uid);
     res.json(courses);
   };
+  
   const enrollUserInCourse = async (req, res) => {
     let { uid, cid } = req.params;
     if (uid === "current") {
