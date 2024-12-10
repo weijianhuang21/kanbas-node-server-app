@@ -176,7 +176,7 @@ export default function UserRoutes(app) {
       return;
     }
     if (currentUser.role === "ADMIN") {
-      const courses = await courseDao.findAllcourses();
+      const courses = await courseDao.findAllCourses();
       res.json(courses);
       return;
     }
