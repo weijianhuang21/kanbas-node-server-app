@@ -66,14 +66,14 @@ import UserRoutes from "./Kanbas/Users/routes.js";
 import courses from "./Kanbas/Database/courses.js";
 import cors from "cors";
 import mongoose from "mongoose";
-import MongoStore from "connect-mongo";
+// import MongoStore from "connect-mongo";
 import "dotenv/config";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
-import EnrollmentRoutes from "./Kanbas/Enrollments/routes.js";
+// import EnrollmentRoutes from "./Kanbas/Enrollments/routes.js";
 import AssignmentRoutes from "./Kanbas/Assignments/routes.js";
-import QuizRoutes from "./Kanbas/Quizzes/routes.js";
-import QuestionRoutes from "./Kanbas/Questions/routes.js";
+// import QuizRoutes from "./Kanbas/Quizzes/routes.js";
+// import QuestionRoutes from "./Kanbas/Questions/routes.js";
 
 
 const CONNECTION_STRING =
@@ -145,8 +145,8 @@ UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
-EnrollmentRoutes(app);
-QuizRoutes(app);
-QuestionRoutes(app);
+// EnrollmentRoutes(app);
+// QuizRoutes(app);
+// QuestionRoutes(app);
 
 app.listen(process.env.PORT || 4000);
